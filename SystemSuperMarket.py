@@ -9,7 +9,8 @@ def main():
         print("2 - Ver carrinho")
         print("3 - Calcular total")
         print("4 - Finalizar compra")
-        print("5 - Sair")
+        print("5 - Remover um produto")
+        print("6 - Sair")
 
         opcao = input("Escolha uma opção: ")
         
@@ -24,28 +25,32 @@ def main():
                     print("\nPreço não pode ser igual a zero.")
                 else:
                     produto = Produto(nome, preco)
-                    carrinho.adicionar_produto(produto)
+                    carrinho.Adicionar_produto(produto)
                     print("\nProduto adicionado ao carrinho!")
 
             except ValueError:
                 print("\nNome ou preço inválido, verifique!")
 
         elif opcao == "2":
-            carrinho.ver_Carrinho()
+            carrinho.Ver_Carrinho()
             
         elif opcao == "3":
-            total = carrinho.calcular_total()
+            total = carrinho.Calcular_total()
             if total != None:
                 print(f"Total: R$ {total:.2f}")
 
         elif opcao == "4":
-            total = carrinho.calcular_total()
+            total = carrinho.Calcular_total()
             if total != None:
                 print(f"Total da compra: R$ {total:.2f}")
                 print("Compra finalizada!")
                 break
 
         elif opcao == "5":
+            nome_Produto = input("Digite o nome do produto que deseja remover: ")
+            carrinho.Remover_Produto(nome_Produto)
+
+        elif opcao == "6":
             print("Saindo do programa...")
             break
 
