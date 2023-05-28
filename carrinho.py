@@ -17,11 +17,11 @@ class CarrinhoDeCompras:
                 total += produto.preco
 
             cupom = input("Digite seu cupom de desconto caso tenha: ")
-
-            cupom = cupom.split(" ")
             if cupom != None:
+                cupom = cupom.split(" ")
                 total -= total * (int(cupom[1]) /100) 
             return total
+        
     def Ver_Carrinho(self):
         if len(self.produtos) == 0:
             print("\nNão há itens no carinho.")
