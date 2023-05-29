@@ -35,12 +35,12 @@ def main():
             carrinho.Ver_Carrinho()
             
         elif opcao == "3":
-            total = carrinho.Calcular_total()
+            total = carrinho.Calcular_total(True)
             if total != None:
                 print(f"Total: R$ {total:.2f}")
 
         elif opcao == "4":
-            total = carrinho.Calcular_total()
+            total = carrinho.Calcular_total(True)
             if total != None:
                 print(f"Total da compra: R$ {total:.2f}")
                 print("Compra finalizada!")
@@ -61,6 +61,8 @@ def main():
     with open("Extrato.txt", "w") as arquivo:
         for produto in carrinho.produtos:
             arquivo.write(f"{produto.nome.upper()}........R$ {produto.preco}\n")
+        total = carrinho.Calcular_total(False)
+        arquivo.write(f"Total da compra = {total}")
 
 if __name__ == "__main__":
     main()

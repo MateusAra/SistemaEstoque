@@ -8,7 +8,7 @@ class CarrinhoDeCompras:
     def Adicionar_produto(self, produto):
         self.produtos.append(produto)
 
-    def Calcular_total(self):
+    def Calcular_total(self, isFinal):
         if len(self.produtos) == 0:
             print("\nNão há itens no carinho.")
         else:
@@ -16,10 +16,11 @@ class CarrinhoDeCompras:
             for produto in self.produtos:
                 total += produto.preco
 
-            cupom = input("Digite seu cupom de desconto caso tenha: ")
-            if cupom != None:
-                cupom = cupom.split(" ")
-                total -= total * (int(cupom[1]) /100) 
+            if isFinal:
+                cupom = input("Digite seu cupom de desconto caso tenha: ")
+                if cupom:
+                    cupom = cupom.split(" ")
+                    total -= total * (int(cupom[1]) /100) 
             return total
         
     def Ver_Carrinho(self):
