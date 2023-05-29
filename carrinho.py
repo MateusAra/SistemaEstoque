@@ -1,4 +1,3 @@
-from produto import Produto
 
 # Classe para representar o carrinho de compras
 class CarrinhoDeCompras:
